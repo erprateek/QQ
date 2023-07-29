@@ -1,0 +1,58 @@
+## Question
+
+Use python ABC/Protocols library to create a script Stack.py containing Stack class, interface that implements
+
+- Stack pop
+- Stack push
+- Fetching Stack length
+- Serializing Stack elements into a list
+- Checking whether an element is in the stack or not
+- Printing Stack
+- Stack reverse
+
+Create a test_stack.py script as well that tests individual components of the code. Examples:
+```
+import pytest
+from Stack import Stack
+
+# Test cases for Stack class
+def test_stack_push():
+    stack = Stack()
+    stack.push(1)
+    stack.push(2)
+    stack.push(3)
+    assert stack.size == 3
+
+def test_stack_pop():
+    stack = Stack()
+    stack.push(1)
+    stack.push(2)
+    stack.push(3)
+    assert stack.pop() == 3
+    assert stack.size == 2
+
+def test_stack_is_empty():
+    stack = Stack()
+    assert stack.isEmpty() == True
+    stack.push(1)
+    assert stack.isEmpty() == False
+
+def test_stack_is_in_stack():
+    stack = Stack()
+    stack.push(1)
+    stack.push(2)
+    stack.push(3)
+    assert stack.isInStack(2) == True
+    assert stack.isInStack(4) == False
+
+def test_stack_reverse():
+    stack = Stack()
+    stack.push(1)
+    stack.push(2)
+    stack.push(3)
+    reversed_stack = stack.reverse()
+    assert reversed_stack.pop() == 1
+    assert reversed_stack.pop() == 2
+    assert reversed_stack.pop() == 3
+
+```
